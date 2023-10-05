@@ -9,15 +9,14 @@ package GOF.Strategy.Operations;
  *
  * @author fa20-bse-018
  */
-public class OperationSubstract implements Strategy{
+public class OperationDivision implements Strategy{
    @Override
    public int doOperation(int num1, int num2) {
-      return num1 - num2;
+      return num1 / num2;
    }
 
     @Override
     public int Range(int num1, int num2) {
        return 0;
-        
-    }
+        }
 }

@@ -11,7 +11,7 @@ package GOF.Strategy.Operations;
  */
 public class Main {
    public static void main(String[] args) {
-      Context context = new Context(new OperationAdd());		
+      Context context = new Context(new OperationAdd(new OperationSubtract()));		
       System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
 
       context = new Context(new OperationSubstract());		
@@ -19,5 +19,11 @@ public class Main {
 
       context = new Context(new OperationMultiply());		
       System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
+      
+      context = new Context(new OperationDivision());		
+      System.out.println("10 / 5 = " + context.executeStrategy(10, 5));
+      
+      context = new Context(new OperationPower());		
+      System.out.println("10^5 = " + context.executeStrategy(10, 5));
    }
 }
