@@ -10,13 +10,19 @@ package GOF.Strategy.Operations;
  * @author fa20-bse-018
  */
 public class Context {
-   private Strategy strategy;
+    private Computer strategy;
 
-   public Context(Strategy strategy){
-      this.strategy = strategy;
-   }
+    public Context(Computer strategy){
+        this.strategy = strategy;
+    }
 
-   public int executeStrategy(int num1, int num2){
-      return strategy.doOperation(num1, num2);
-   }
+    public int executeStrategy(int num1, int num2){
+        return strategy.doOperation(num1, num2);
+    }
+   
+    public int executeInRange(int num1, int num2){
+        Computer ChainOfResponsibity = new OperationAdd(new OperationSubstract(new OperationMultiply(new OperationDivision(new OperationPower()))));
+        return ChainOfResponsibity.ComputeInRange(num1, num2);
+    }
+    
 }

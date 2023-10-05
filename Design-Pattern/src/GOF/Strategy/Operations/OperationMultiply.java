@@ -9,14 +9,32 @@ package GOF.Strategy.Operations;
  *
  * @author fa20-bse-018
  */
-public class OperationMultiply implements Strategy{
-   @Override
-   public int doOperation(int num1, int num2) {
-      return num1 * num2;
-   }
-
+public class OperationMultiply extends Computer{
+    
+    public OperationMultiply(){}
+    
+    public OperationMultiply(OperationDivision nextStrategy){
+        this.nextStrategy = nextStrategy;
+    }
+    
     @Override
-    public int Range(int num1, int num2) {
-       return 0;
-       }
+    public int doOperation(int num1, int num2) {
+       return num1 * num2;
+    }
+
+  @Override
+    public int ComputeInRange(int num1, int num2) {
+        if(num1<= 300 &&  num1>=200 && num2<=300 && num2>=200){
+            return num1 * num2;
+        }
+        if(nextStrategy==null){
+            System.out.println("Support not available...");
+        }
+        else{
+            nextStrategy.ComputeInRange(num1, num2);
+        }
+    
+        return 0;
+        
+    }
 }

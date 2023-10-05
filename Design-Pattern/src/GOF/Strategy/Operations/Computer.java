@@ -5,10 +5,9 @@
  */
 package GOF.Strategy.Operations;
 
-/**
- *
- * @author fa20-bse-018
- */
-abstract class Computer {
-    Strategy nextStrategy=null;
+
+
+abstract class Computer implements Strategy{
+    Computer nextStrategy = null;
+    public abstract int ComputeInRange(int num1, int num2);
 }
