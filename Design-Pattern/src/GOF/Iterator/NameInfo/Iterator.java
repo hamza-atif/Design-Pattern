@@ -11,9 +11,9 @@ package GOF.Iterator.NameInfo;
  */
 
 public interface Iterator {
-    public boolean hasNext();
-    public Object next();
-    public Object previous();
-    public void moveToLast();
-    public void moveToFirst();
+    boolean hasNext();
+    Object next();
+    Object previous();
+    void moveToLast();
+    void moveToFirst();
 }

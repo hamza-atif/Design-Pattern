@@ -10,5 +10,5 @@ package GOF.Iterator.NameInfo;
  * @author fa20-bse-018
  */
 public interface Container {
-   public Iterator getIterator();
+    Iterator getIterator();
 }

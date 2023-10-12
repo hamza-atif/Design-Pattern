@@ -11,41 +11,45 @@ package GOF.Iterator.NameInfo;
  */
 
 public class NameRepository implements Container {
-    public String names[] = {"Robert", "John", "Julie", "Lora"};
+    public Student students[] = {
+        new Student("1", "Muhammad Hamza", "Male", "123-456-7890"),
+        new Student("2", "Hamza Atif", "Male", "987-654-3210"),
+        new Student("3", "Maryam", "Female", "555-555-5555"),
+        new Student("4", "Adan", "Female", "777-777-7777")
+    };
 
     @Override
     public Iterator getIterator() {
-        return new NameIterator();
+        return new StudentIterator();
     }
 
-    private class NameIterator implements Iterator {
-
+    private class StudentIterator implements Iterator {
         int index;
 
         @Override
         public boolean hasNext() {
-            return index < names.length;
+            return index >= 0;
         }
 
         @Override
         public Object next() {
             if (this.hasNext()) {
-                return names[index++];
+                return students[index--];
             }
             return null;
         }
 
         @Override
         public Object previous() {
-            if (index > 0) {
-                return names[--index];
+            if (index < students.length - 1) {
+                return students[++index];
             }
             return null;
         }
 
         @Override
         public void moveToLast() {
-            index = names.length - 1;
+            index = students.length - 1;
         }
 
         @Override
