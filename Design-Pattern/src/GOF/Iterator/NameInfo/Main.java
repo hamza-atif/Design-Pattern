@@ -11,12 +11,21 @@ package GOF.Iterator.NameInfo;
  */
 public class Main {
 	
-   public static void main(String[] args) {
-      NameRepository namesRepository = new NameRepository();
+    public static void main(String[] args) {
+        NameRepository namesRepository = new NameRepository();
 
-      for(Iterator iter = namesRepository.getIterator(); iter.hasNext();){
-         String name = (String)iter.next();
-         System.out.println("Name : " + name);
-      } 	
-   }
+        Iterator iter = namesRepository.getIterator();
+        while (iter.hasNext()) {
+            String name = (String) iter.next();
+            System.out.println("Name: " + name);
+        }
+        
+        // Move to last
+        iter.moveToLast();
+        System.out.println("Last Name in list is: " + iter.next());
+        
+        // Move to first
+        iter.moveToFirst();
+        System.out.println("First Name in list is: " + iter.next());
+    }
 }
