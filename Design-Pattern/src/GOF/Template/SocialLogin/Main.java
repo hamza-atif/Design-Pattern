@@ -8,6 +8,8 @@ package GOF.Template.SocialLogin;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,27 +18,41 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        Network network = null;
+        List<Network> networks = new ArrayList<>();
+
+        System.out.println("Welcome to the Social Network Poster!");
         System.out.print("Input user name: ");
         String userName = reader.readLine();
         System.out.print("Input password: ");
         String password = reader.readLine();
 
-        // Enter the message.
-        System.out.print("Input message: ");
-        String message = reader.readLine();
+        while (true) {
+            System.out.print("Enter message description: ");
+            String description = reader.readLine();
+            System.out.print("Select message type (ERROR, WARNING, INFO): ");
+            String messageTypeString = reader.readLine();
+            MessageType messageType = MessageType.valueOf(messageTypeString);
 
-        System.out.println("\nChoose social network for posting message.\n" +
-                "1 - Facebook\n" +
-                "2 - Twitter");
-        int choice = Integer.parseInt(reader.readLine());
+            System.out.print("Select network (Facebook, Twitter, LinkedIn) or 'none': ");
+            String networkTypeString = reader.readLine();
+            NetworkType networkType = NetworkType.NONE;
+            if (!networkTypeString.equalsIgnoreCase("none")) {
+                networkType = NetworkType.valueOf(networkTypeString);
+            }
 
-        // Create proper network object and send the message.
-        if (choice == 1) {
-            network = new Facebook(userName, password);
-        } else if (choice == 2) {
-            network = new Twitter(userName, password);
+            Message message = new Message(description, messageType, networkType);
+            for (Network network : networks) {
+                if (networkType == NetworkType.NONE || network.getNetworkType() == networkType) {
+                    network.post(message);
+                }
+            }
+
+            System.out.print("Do you want to continue sending messages? (yes/no): ");
+            String continueOption = reader.readLine();
+            if (!continueOption.equalsIgnoreCase("yes")) {
+                break;
+            }
         }
-        network.post(message);
     }
 }
+

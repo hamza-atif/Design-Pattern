@@ -15,43 +15,30 @@ public class Facebook extends Network {
         this.password = password;
     }
 
-    public boolean logIn(String userName, String password) {
-        System.out.println("\nChecking user's parameters");
-        System.out.println("Name: " + this.userName);
-        System.out.print("Password: ");
-        for (int i = 0; i < this.password.length(); i++) {
-            System.out.print("*");
-        }
-        simulateNetworkLatency();
-        System.out.println("\n\nLogIn success on Facebook");
-        return true;
+    @Override
+    boolean logIn(String userName, String password) {
+        System.out.println("Logged into Facebook as " + this.userName);
+        return true;  // Simulated successful login
     }
 
-    public boolean sendData(byte[] data) {
-        boolean messagePosted = true;
-        if (messagePosted) {
-            System.out.println("Message: '" + new String(data) + "' was posted on Facebook");
-            return true;
-        } else {
+    @Override
+    boolean sendData(Message message) {
+        if (message.getNetworkType() != NetworkType.FACEBOOK) {
+            System.out.println("Cannot send to Facebook. Message not targeted for Facebook.");
             return false;
         }
+        // Facebook sending logic
+        System.out.println("Sent a " + message.getMessageType() + " message on Facebook: " + message.getDescription());
+        return true;  // Simulated successful message sending
     }
 
-    public void logOut() {
-        System.out.println("User: '" + userName + "' was logged out from Facebook");
+    @Override
+    void logOut() {
+        System.out.println("Logged out from Facebook");
     }
 
-    private void simulateNetworkLatency() {
-        try {
-            int i = 0;
-            System.out.println();
-            while (i < 10) {
-                System.out.print(".");
-                Thread.sleep(500);
-                i++;
-            }
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
+    @Override
+    NetworkType getNetworkType() {
+        return NetworkType.FACEBOOK;
     }
 }

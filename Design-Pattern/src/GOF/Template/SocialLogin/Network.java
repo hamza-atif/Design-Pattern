@@ -15,22 +15,37 @@ public abstract class Network {
 
     Network() {}
 
-    /**
-     * Publish the data to whatever network.
-     */
-    public boolean post(String message) {
-        // Authenticate before posting. Every network uses a different
-        // authentication method.
-        if (logIn(this.userName, this.password)) {
-            // Send the post data.
-            boolean result =  sendData(message.getBytes());
-            logOut();
-            return result;
+    abstract boolean logIn(String userName, String password);
+    abstract boolean sendData(Message message);
+    abstract void logOut();
+    abstract NetworkType getNetworkType();
+
+    protected void simulateNetworkLatency() {
+        try {
+            int i = 0;
+            System.out.println();
+            while (i < 10) {
+                System.out.print(".");
+                Thread.sleep(500);
+                i++;
+            }
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
         }
-        return false;
     }
 
-    abstract boolean logIn(String userName, String password);
-    abstract boolean sendData(byte[] data);
-    abstract void logOut();
+    public void post(Message message) {
+        if (logIn(this.userName, this.password)) {
+            boolean result = sendData(message);
+            if (result) {
+                System.out.println("Message sent successfully on " + this.getClass().getSimpleName());
+            } else {
+                System.out.println("Message sending failed on " + this.getClass().getSimpleName());
+            }
+        } else {
+            System.out.println("Failed to log in to " + this.getClass().getSimpleName());
+        }
+    }
 }
+
+
