@@ -8,13 +8,9 @@ package GOF.Template.SocialLogin;
  *
  * @author Hamza
  */
-enum MessageType {
-    ERROR, WARNING, INFO
-}
 
-enum NetworkType {
-    FACEBOOK, TWITTER, LINKEDIN, NONE
-}
+
+
 class Message {
     private String description;
     private MessageType messageType;
