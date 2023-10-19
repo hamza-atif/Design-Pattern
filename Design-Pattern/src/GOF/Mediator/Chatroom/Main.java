@@ -22,6 +22,6 @@ public class Main {
    
         ChatRoom.sendMessageToTarget(hamza, comsatsUniversity, "Hello, COMSATS University!");
         ChatRoom.sendMessageToAll(hamza, List.of(comsatsUniversity, nustUniversity, teachermukhtiar, atif), "Hello, Everyone!");
-
     }
+
 }
