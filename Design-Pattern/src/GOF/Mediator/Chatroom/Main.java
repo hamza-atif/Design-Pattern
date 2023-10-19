@@ -9,12 +9,19 @@ package GOF.Mediator.Chatroom;
  *
  * @author fa20-bse-018
  */
-public class Main {
-   public static void main(String[] args) {
-      User hamza = new User("Hamza");
-      User atif = new User("Atif");
+import java.util.ArrayList;
+import java.util.List;
 
-      hamza.sendMessage("Hi! Hamza!");
-      atif.sendMessage("Hello! Atif!");
-   }
+public class Main {
+    public static void main(String[] args) {
+        University comsatsUniversity = new University("COMSATS University");
+        University nustUniversity = new University("NUST");
+        Teacher teachermukhtiar = new Teacher("Sir Mukhtiar Zamin ");
+        User hamza = new User("Hamza");
+        User atif = new User("Atif");
+   
+        ChatRoom.sendMessageToTarget(hamza, comsatsUniversity, "Hello, COMSATS University!");
+        ChatRoom.sendMessageToAll(hamza, List.of(comsatsUniversity, nustUniversity, teachermukhtiar, atif), "Hello, Everyone!");
+
+    }
 }
