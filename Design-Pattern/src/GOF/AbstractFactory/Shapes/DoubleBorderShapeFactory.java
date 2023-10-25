@@ -9,15 +9,16 @@ package GOF.AbstractFactory.Shapes;
  *
  * @author fa20-bse-018
  */
-public class ShapeFactory extends AbstractFactory {
+public class DoubleBorderShapeFactory extends AbstractFactory {
    @Override
    public Shape getShape(String shapeType){    
       if(shapeType.equalsIgnoreCase("RECTANGLE")){
-         return new Rectangle();         
+         return new DoubleBorderRectangle();         
       }else if(shapeType.equalsIgnoreCase("SQUARE")){
-         return new Square();
+         return new DoubleBorderSquare();
       }else if(shapeType.equalsIgnoreCase("TRIANGLE")){
-         return new Triangle();}
+         return new DoubleBorderTriangle();
+      }		 
       return null;
    }
 }

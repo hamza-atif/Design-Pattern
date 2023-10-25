@@ -10,10 +10,14 @@ package GOF.AbstractFactory.Shapes;
  * @author fa20-bse-018
  */
 public class FactoryProducer {
-   public static AbstractFactory getFactory(boolean rounded){   
+   public static AbstractFactory getFactory(boolean rounded,boolean doubleborders){   
       if(rounded){
          return new RoundedShapeFactory();         
-      }else{
+      }
+      else if(doubleborders){
+      return new DoubleBorderShapeFactory();
+      }
+      else{
          return new ShapeFactory();
       }
    }

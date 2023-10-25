@@ -21,16 +21,19 @@ public class Main {
       Shape shape2 = shapeFactory.getShape("SQUARE");
       //call draw method of Shape Square
       shape2.draw();
+      Shape shape3 = shapeFactory.getShape("Triangle");
+      //call draw method of Shape Triangle
+      shape3.draw();
       //get shape factory
       AbstractFactory shapeFactory1 = FactoryProducer.getFactory(true);
       //get an object of Shape Rectangle
-      Shape shape3 = shapeFactory1.getShape("RECTANGLE");
+      Shape shape4 = shapeFactory1.getShape("RECTANGLE");
       //call draw method of Shape Rectangle
-      shape3.draw();
-      //get an object of Shape Square 
-      Shape shape4 = shapeFactory1.getShape("SQUARE");
-      //call draw method of Shape Square
       shape4.draw();
+      //get an object of Shape Square 
+      Shape shape5 = shapeFactory1.getShape("SQUARE");
+      //call draw method of Shape Square
+      shape5.draw();
       
    }
 }
