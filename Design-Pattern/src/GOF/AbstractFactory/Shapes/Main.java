@@ -37,6 +37,10 @@ public class Main {
       Shape shape6 = shapeFactory1.getShape("TRIANGLE");
       //call draw method of Shape Square
       shape6.draw();
+      AbstractFactory shapeFactory2 = FactoryProducer.getFactory(true,true);
+      Shape shape7 = shapeFactory2.getShape("TRIANGLE");
+      //call draw method of Shape Square
+      shape7.draw();
       
    }
 }

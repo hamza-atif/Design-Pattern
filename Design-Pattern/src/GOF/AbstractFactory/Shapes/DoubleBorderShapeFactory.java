@@ -12,9 +12,9 @@ package GOF.AbstractFactory.Shapes;
 public class DoubleBorderShapeFactory extends AbstractFactory {
    @Override
    public Shape getShape(String shapeType){    
-      if(shapeType.equalsIgnoreCase("RECTANGLE")){
+      if(shapeType.equalsIgnoreCase("DRECTANGLE")){
          return new DoubleBorderRectangle();         
-      }else if(shapeType.equalsIgnoreCase("SQUARE")){
+      }else if(shapeType.equalsIgnoreCase("DSQUARE")){
          return new DoubleBorderSquare();
       }else if(shapeType.equalsIgnoreCase("TRIANGLE")){
          return new DoubleBorderTriangle();
