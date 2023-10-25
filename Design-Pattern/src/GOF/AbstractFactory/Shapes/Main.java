@@ -34,6 +34,9 @@ public class Main {
       Shape shape5 = shapeFactory1.getShape("SQUARE");
       //call draw method of Shape Square
       shape5.draw();
+      Shape shape6 = shapeFactory1.getShape("TRIANGLE");
+      //call draw method of Shape Square
+      shape6.draw();
       
    }
 }
