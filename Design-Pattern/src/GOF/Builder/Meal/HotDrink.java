@@ -9,6 +9,13 @@ package GOF.Builder.Meal;
  *
  * @author fa20-bse-018
  */
-public class NewClass {
-    
+public abstract class HotDrink implements Item {
+
+	@Override
+	public Packing packing() {
+       return new Bottle();
+	}
+
+	@Override
+	public abstract float price();
 }
