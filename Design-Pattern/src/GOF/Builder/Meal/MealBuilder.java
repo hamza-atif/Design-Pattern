@@ -11,17 +11,21 @@ package GOF.Builder.Meal;
  */
 public class MealBuilder {
 
-   public Meal prepareVegMeal (){
+   public Meal prepareVegMeal() {
       Meal meal = new Meal();
       meal.addItem(new VegBurger());
       meal.addItem(new Coke());
+      meal.addItem(new DietCoke()); // Add Diet version of Coke
+      meal.addItem(new Tea()); // Add Tea
       return meal;
-   }   
+   }
 
-   public Meal prepareNonVegMeal (){
+   public Meal prepareNonVegMeal() {
       Meal meal = new Meal();
       meal.addItem(new ChickenBurger());
       meal.addItem(new Pepsi());
+      meal.addItem(new DietPepsi()); // Add Diet version of Pepsi
+      meal.addItem(new Tea()); // Add Tea
       return meal;
    }
 }
