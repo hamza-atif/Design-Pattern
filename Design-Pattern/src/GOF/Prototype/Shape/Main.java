@@ -5,10 +5,6 @@
  */
 package GOF.Prototype.Shape;
 
-/**
- *
- * @author fa20-bse-018
- */
 public class Main {
     public static void main(String[] args) {
         ShapeCache.loadCache();
