@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package GOF.Command.TextEditorExample;
 
-/**
- *
- * @author Hamza
- */
 public class PasteCommand extends Command {
 
     public PasteCommand(Editor editor) {
@@ -16,10 +8,19 @@ public class PasteCommand extends Command {
 
     @Override
     public boolean execute() {
-        if (editor.clipboard == null || editor.clipboard.isEmpty()) return false;
+        if (editor.clipboard == null || editor.clipboard.isEmpty()) {
+            return false; // Disable paste when clipboard is empty
+        }
 
         backup();
         editor.textField.insert(editor.clipboard, editor.textField.getCaretPosition());
         return true;
+    }
+
+    @Override
+    public void undo() {
+        // For undoing paste, cutting the pasted content
+        CutCommand cutCommand = new CutCommand(editor);
+        cutCommand.execute();
     }
 }

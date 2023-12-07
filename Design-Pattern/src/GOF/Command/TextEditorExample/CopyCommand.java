@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package GOF.Command.TextEditorExample;
 
-/**
- *
- * @author Hamza
- */
 public class CopyCommand extends Command {
 
     public CopyCommand(Editor editor) {
@@ -16,7 +8,17 @@ public class CopyCommand extends Command {
 
     @Override
     public boolean execute() {
+        if (editor.textField.getSelectedText() == null || editor.textField.getSelectedText().isEmpty()) {
+            return false; // Disable copy when no text is selected
+        }
+
         editor.clipboard = editor.textField.getSelectedText();
-        return false;
+        return true;
+    }
+    
+    @Override
+    public void undo() {
+        // For undoing copy, clearing clipboard
+        editor.clipboard = null;
     }
 }
