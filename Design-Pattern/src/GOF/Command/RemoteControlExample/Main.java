@@ -1,21 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package GOF.Command.RemoteControlExample;
 
-/**
- *
- * @author Hamza
- */
 public class Main {
-
     public static void main(String[] args) {
-
         RemoteControl control = new RemoteControl();
-        Light light = new Light();
-        Command lightsOn = new LightOnCommand(light);
-        Command lightsOff = new LightOffCommand(light);
+        Light oldLight = new Light();
+        Light newLight = new Light();
+
+        Command lightsOn = new LightOnCommand(oldLight);
+        Command lightsOff = new LightOffCommand(oldLight);
+        Command lightReplace = new LightReplaceCommand(oldLight, newLight);
 
         // switch on
         control.setCommand(lightsOn);
@@ -25,6 +18,8 @@ public class Main {
         control.setCommand(lightsOff);
         control.pressButton();
 
+        // replace light
+        control.setCommand(lightReplace);
+        control.pressButton();
     }
-
 }
