@@ -4,29 +4,25 @@
  */
 package GOF.Proxy.Image.Exam;
 
-/**
- *
- * @author Hamza
- */
-public class Main{
+
+public class Main {
     public static void main(String[] args) {
-        // Creating a teacher's view of the ExamResults
-        ExamResults teacherView = new ProtectedProxyExamResults(true);
-        teacherView.addAnswer("Q1", "Teacher's Answer1");
-        teacherView.addAnswer("Q2", "Teacher's Answer2");
-
-        // Creating a student's view of the ExamResults
-        ExamResults studentView = new ProtectedProxyExamResults(false);
-        studentView.addAnswer("Q1", "Student's Answer1");
-        studentView.addAnswer("Q3", "Student's Answer3");
-
-        // Teacher views the full ExamResults
-        System.out.println("Teacher's View:");
-        teacherView.showResults();
-        System.out.println("");
-
-        // Student views only their ExamResults
-        System.out.println("Student's View:");
-        studentView.showResults();
+      Image image = new ProxyImage("test_10mb.jpg");
+      Image image2 = new VirtualProxy("unsupported_image.png");
+      Student student = new Student();
+      ExamResults studentExamResults = new ExamResults(null); // Load questions on-demand
+      
+      image.display(); 
+      System.out.println("");
+      
+      
+      image.display(); 	
+      image2.display();
+      studentExamResults.loadQuestions();
+      student.takeExam(studentExamResults);
+      System.out.println("\n-----------------------------\n");
+      Teacher teacher = new Teacher();
+      teacher.reviewExamResults(studentExamResults);
     }
+   
 }
