@@ -23,7 +23,6 @@ public class Main {
     return new SonExpression(robert, stuart);
 }
 
-   //Rule: Julie is a married women
    public static Expression getMarriedWomanExpression(){
       Expression julie = new TerminalExpression("Julie");
       Expression married = new TerminalExpression("Married");
