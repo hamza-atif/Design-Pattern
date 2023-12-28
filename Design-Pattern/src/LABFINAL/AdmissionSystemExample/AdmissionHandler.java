@@ -8,6 +8,12 @@ package LABFINAL.AdmissionSystemExample;
  *
  * @author Hamza
  */
-public class NewClass6 {
-    
+abstract class AdmissionHandler {
+    protected AdmissionHandler successor;
+
+    public void setSuccessor(AdmissionHandler successor) {
+        this.successor = successor;
+    }
+
+    public abstract void processAdmission(Student student, Discipline discipline);
 }

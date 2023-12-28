@@ -8,6 +8,6 @@ package LABFINAL.AdmissionSystemExample;
  *
  * @author Hamza
  */
-public class NewClass12 {
-    
+interface Observer {
+    void update(String message);
 }

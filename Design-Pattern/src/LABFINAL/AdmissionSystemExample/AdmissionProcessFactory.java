@@ -8,6 +8,7 @@ package LABFINAL.AdmissionSystemExample;
  *
  * @author Hamza
  */
-public class NewClass10 {
-    
+interface AdmissionProcessFactory {
+    AdmissionTest createAdmissionTest();
+    Interview createInterview();
 }

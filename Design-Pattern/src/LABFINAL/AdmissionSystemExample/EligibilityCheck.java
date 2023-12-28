@@ -8,6 +8,6 @@ package LABFINAL.AdmissionSystemExample;
  *
  * @author Hamza
  */
-public class NewClass13 {
-    
+interface EligibilityCheck {
+    boolean checkEligibility(Student student);
 }

@@ -8,6 +8,9 @@ package LABFINAL.AdmissionSystemExample;
  *
  * @author Hamza
  */
-public class NewClass3 {
-    
+class AdmissionQuotaDecorator implements Quota {
+    public boolean checkQuotaAvailability() {
+        // Quota Availability logic
+        return true;
+    }
 }

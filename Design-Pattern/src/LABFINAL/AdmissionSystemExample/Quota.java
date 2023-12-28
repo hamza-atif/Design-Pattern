@@ -8,6 +8,6 @@ package LABFINAL.AdmissionSystemExample;
  *
  * @author Hamza
  */
-public class NewClass5 {
-    
+interface Quota {
+    boolean checkQuotaAvailability();
 }

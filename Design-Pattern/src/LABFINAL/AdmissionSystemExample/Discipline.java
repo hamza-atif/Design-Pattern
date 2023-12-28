@@ -8,6 +8,9 @@ package LABFINAL.AdmissionSystemExample;
  *
  * @author Hamza
  */
-public class NewClass {
-    
+class Discipline {
+    private int disciplineId;
+    private String name;
+    private AdmissionTest admissionTest;
+    private Interview interview;
 }

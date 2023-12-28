@@ -8,6 +8,8 @@ package LABFINAL.AdmissionSystemExample;
  *
  * @author Hamza
  */
-public class NewClass7 {
-    
+class AdmissionTest {
+    private int testId;
+    private String testName;
+    private double passingScore;
 }
